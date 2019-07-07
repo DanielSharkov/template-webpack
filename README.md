@@ -1,11 +1,17 @@
-# svelte app
+# Extended [Svelte Webpack Template](https://github.com/DanielSharkov/template-webpack)
+
+##### Extended with
+* CSS Preprocessor [Stylus](http://stylus-lang.com/) + [autoprefixer](https://www.npmjs.com/package/autoprefixer)
+* Single Page [Svelte Router](https://www.npmjs.com/package/@danielsharkov/svelte-router)
+
+---
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template-webpack.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
 ```bash
-npx degit sveltejs/template-webpack svelte-app
+npx degit DanielSharkov/template-webpack svelte-app
 cd svelte-app
 ```
 

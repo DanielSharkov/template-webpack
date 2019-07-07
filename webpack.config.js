@@ -4,6 +4,19 @@ const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
 module.exports = {
+	devServer: {
+		historyApiFallback: true,
+		disableHostCheck: true,
+		watchContentBase: true,
+		host: '0.0.0.0',
+		compress: true,
+		port: 8080,
+		hot: false,
+		overlay: {
+			warnings: false,
+			errors: true,
+		},
+	},
 	entry: {
 		bundle: ['./src/main.js']
 	},
@@ -19,12 +32,21 @@ module.exports = {
 		rules: [
 			{
 				test: /\.svelte$/,
-				exclude: /node_modules/,
 				use: {
 					loader: 'svelte-loader',
 					options: {
 						emitCss: true,
-						hotReload: true
+						hotReload: true,
+						preprocess: require('svelte-preprocess')({
+							aliases: [['stylus']],
+							stylus: {
+								plugins: [
+									require('autoprefixer')({
+										browsers: 'last 2 versions'
+									})
+								]
+							},
+						})
 					}
 				}
 			},
@@ -37,6 +59,15 @@ module.exports = {
 					 * */
 					prod ? MiniCssExtractPlugin.loader : 'style-loader',
 					'css-loader'
+				]
+			},
+			{
+				test: /\.styl(us)?$/,
+				use: [
+					prod ? MiniCssExtractPlugin.loader : 'style-loader',
+					'css-loader',
+					'postcss-loader',
+					'stylus-loader'
 				]
 			}
 		]
