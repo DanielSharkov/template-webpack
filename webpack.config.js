@@ -39,13 +39,13 @@ module.exports = {
 						hotReload: true,
 						preprocess: require('svelte-preprocess')({
 							aliases: [['stylus']],
-							stylus: {
+							postcss: {
 								plugins: [
 									require('autoprefixer')({
 										browsers: 'last 2 versions'
 									})
 								]
-							},
+							}
 						})
 					}
 				}

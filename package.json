@@ -1,6 +1,6 @@
 {
   "name": "svelte-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "@danielsharkov/svelte-router": "^1.2.1",
     "autoprefixer": "^9.6.0",
